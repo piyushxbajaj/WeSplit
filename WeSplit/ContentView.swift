@@ -8,41 +8,41 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var tapCount = 0
-    var body: some View {
-        Button("Tap COunt : \(tapCount)"){
-            self.tapCount += 1
-            
-        }
-//        Form{
-//            Group{
-//                Text("Hello World")
-//                Text("Hello World")
-//                Text("Hello World")
-//                Text("Hello World")
-//                Text("Hello World")
-//            }
-//            Group{
-//                Text("Hello World")
-//                Text("Hello World")
-//                Text("Hello World")
-//                Text("Hello World")
-//                Text("Hello World")
-//            }
-//        NavigationView{
-//            Form{
-//                Section{
-//                    Text("Hello World")
-//                }
-//                .navigationBarTitle(Text("Navigation Bar"),displayMode: .inline)
-//                .navigationBarTitle(Text("Navigation Bar"))
-//                .navigationBarTitle("Nav Bar")
-//        }
+//struct ContentView: View {
+//    @State private var name = ""
 //
+//    var body: some View {
+//        Form {
+//            Section{
+//                TextField("Enter your name", text: $name)
+//                Text("Your name is \(name)")
+//
+//            }
+//
+//            ForEach(0..<100) { number in
+//            Text("Row \(number)")
+//            }
+//
+//        }
 //    }
+//}
+
+struct ContentView: View {
+    let students = ["Piyush","piyushxbajaj","smrtdvlpr"]
+    @State private var  selectedStudent = 0
+    var body: some View{
+        VStack{
+            Picker("Select your student",selection: $selectedStudent){
+                ForEach(0..<students.count){
+                    Text(self.students[$0])
+                }
+                
+            }
+            Text("You chose # \(students[selectedStudent])")
+        }
+    }
 }
-}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -50,4 +50,4 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-}
+
